@@ -1,4 +1,6 @@
-require "truemail/rspec/version"
+# frozen_string_literal: true
+
+require 'truemail/rspec/version'
 
 module Truemail
   module Rspec
