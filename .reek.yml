@@ -1,3 +1,28 @@
 detectors:
   IrresponsibleModule:
     enabled: false
+
+  FeatureEnvy:
+    exclude:
+      - Truemail::RSpec::ConfigurationHelper#create_configuration
+      - Truemail::RSpec::ValidatorHelper#request_instance
+
+  NestedIterators:
+    exclude:
+      - Truemail::RSpec::ConfigurationHelper#configuration_block
+
+  BooleanParameter:
+    exclude:
+      - Truemail::RSpec::ValidatorHelper#create_validator
+
+  DuplicateMethodCall:
+    exclude:
+      - Truemail::RSpec::ValidatorHelper#mx_layer
+      - Truemail::RSpec::ValidatorHelper#smtp_layer
+      - Truemail::RSpec::ValidatorHelper#unstub_validation_layers
+
+  LongParameterList:
+    enabled: false
+
+  TooManyStatements:
+    enabled: false

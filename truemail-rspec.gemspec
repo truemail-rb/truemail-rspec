@@ -6,7 +6,7 @@ require 'truemail/rspec/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'truemail-rspec'
-  spec.version       = Truemail::Rspec::VERSION
+  spec.version       = Truemail::RSpec::VERSION
   spec.authors       = ['Vladislav Trotsenko']
   spec.email         = ['admin@bestweb.com.ua']
 
@@ -30,11 +30,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'overcommit', '~> 0.51.0'
   spec.add_development_dependency 'pry-byebug', '~> 3.7'
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.1'
-  spec.add_development_dependency 'reek', '5.3.1'
+  spec.add_development_dependency 'reek', '~> 5.5'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 0.76.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5', '>= 1.5.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.36'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_runtime_dependency 'rspec', '~> 3.0'
   spec.add_runtime_dependency 'truemail', '~> 1.4'
 end
