@@ -7,12 +7,8 @@ require 'pry'
 require 'truemail'
 require 'truemail/rspec'
 
+SimpleCov.minimum_coverage(100)
 SimpleCov.start
-
-rspec_custom = File.join(File.dirname(__FILE__), 'support/**/*.rb')
-Dir[File.expand_path(rspec_custom)].each do |file|
-  require file unless file[/\A.+_spec\.rb\z/]
-end
 
 RSpec.configure do |config|
   config.example_status_persistence_file_path = '.rspec_status'
