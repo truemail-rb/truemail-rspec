@@ -1,6 +1,5 @@
 require:
   - rubocop-rspec
-  - rubocop-performance
 
 AllCops:
   DisplayCopNames:    true
@@ -16,6 +15,12 @@ Metrics/ClassLength:
 
 Metrics/MethodLength:
   Max: 15
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
 
 Metrics/CyclomaticComplexity:
   Enabled: false
