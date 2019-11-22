@@ -15,6 +15,7 @@
   - [Create validator instance](#create-validator-instance)
     - [create_servers_list](#create_servers_list)
     - [create_validator DSL](#create_validator-dsl)
+- [Truemail family](#truemail-family)
 - [Contributing](#contributing)
 - [License](#license)
 - [Code of Conduct](#code-of-conduct)
@@ -31,14 +32,16 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-group :test do
-  gem 'truemail-rspec'
+group :development, :test do
+  gem 'truemail-rspec', require: false
 end
 ```
 
 And add into your `spec_helper.rb` or `rails_helper.rb`:
 
 ```ruby
+require 'truemail/rspec'
+
 RSpec.configure do |config|
   config.include Truemail::RSpec
 end
@@ -90,17 +93,25 @@ create_servers_list # => returns array with random ip addresses
 
 ```ruby
 create_validator(
-  validation_type, # optional, :regex, :mx, :smtp, by default creates :smtp validation
-  email, # optional, by default random email
-  mail_servers, # optional, by default array with random ip addresses
-  success: true, # optional, by default true
-  configuration: create_configuration # optional, by default creates random configuration
+  validation_type, # optional, type:Symbol, can be :regex, :mx or :smtp, by default creates :smtp validation
+  email, # optional, type:String, by default random email
+  mail_servers, # optional, type:Array(String), by default array with random ip addresses
+  success: true, # optional, type:Bool, by default true
+  configuration: create_configuration # optional, type:Truemail::Configuration, by default creates random configuration
 )
 
 # => returns Truemail::Validator instance follow passed params
 ```
 
 ---
+
+## Truemail family
+
+All Truemail extensions: https://github.com/truemail-rb
+
+### truemail
+
+gem `truemail` - Configurable plain Ruby email validator, https://github.com/rubygarage/truemail
 
 ## Contributing
 

@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundle-audit', '~> 0.1.0'
   spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'bundler-audit', '~> 0.6.1'
   spec.add_development_dependency 'fasterer', '~> 0.8.0'
   spec.add_development_dependency 'ffaker', '~> 2.13'
   spec.add_development_dependency 'overcommit', '~> 0.51.0'
@@ -33,9 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'reek', '~> 5.5'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 0.76.0'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.5', '>= 1.5.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.36'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_runtime_dependency 'rspec', '~> 3.0'
-  spec.add_runtime_dependency 'truemail', '~> 1.4'
+  spec.add_runtime_dependency 'truemail', '~> 1.4', '>= 1.4.1'
 end
