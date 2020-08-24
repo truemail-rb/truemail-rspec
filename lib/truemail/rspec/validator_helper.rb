@@ -41,7 +41,7 @@ module Truemail
         end
       end
 
-      def unstub_validation_layers
+      def unstub_validation_layers # rubocop:disable Metrics/AbcSize
         allow_any_instance_of(Truemail::Validate::Regex).to receive(:match_regex_pattern?).and_call_original
         allow(Truemail::Validate::Regex).to receive(:check).and_call_original
         allow_any_instance_of(Truemail::Validate::Mx).to receive(:mx_records).and_call_original
@@ -80,7 +80,7 @@ module Truemail
         request
       end
 
-      def smtp_layer
+      def smtp_layer # rubocop:disable Metrics/AbcSize
         allow(Truemail::Validate::Regex).to receive(:check).and_return(true)
         allow_any_instance_of(Truemail::Validate::Mx).to receive(:mx_records).and_return(mail_servers)
         allow_any_instance_of(Truemail::Validate::Mx).to receive(:domain_not_include_null_mx).and_return(true)
