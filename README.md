@@ -35,7 +35,7 @@ Ruby MRI 2.5.0+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's `Gemfile`:
 
 ```ruby
 group :development, :test do
@@ -65,7 +65,7 @@ Or install it yourself as:
 
 ### Create configuration instance
 
-Allow to create configuration instance with random or with predefined params.
+Allows to create configuration instance with random or with predefined params.
 
 #### Configuration instance with default random params
 
@@ -87,7 +87,7 @@ create_configuration(verifier_email: 'email@domain.com', verifier_domain: 'other
 
 ### Create validator instance
 
-Allow to create validator instance with default random or with predefined params.
+Allows to create validator instance with default random or with predefined params.
 
 #### create_servers_list
 
