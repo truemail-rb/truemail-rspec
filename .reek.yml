@@ -6,6 +6,11 @@ detectors:
     exclude:
       - Truemail::RSpec::ConfigurationHelper#create_configuration
       - Truemail::RSpec::ValidatorHelper#request_instance
+      - Truemail::RSpec::AuditorHelper#create_auditor
+
+  ControlParameter:
+    exclude:
+      - Truemail::RSpec::AuditorHelper#create_auditor
 
   NestedIterators:
     exclude:
@@ -14,6 +19,7 @@ detectors:
   BooleanParameter:
     exclude:
       - Truemail::RSpec::ValidatorHelper#create_validator
+      - Truemail::RSpec::AuditorHelper#create_auditor
 
   DuplicateMethodCall:
     exclude:

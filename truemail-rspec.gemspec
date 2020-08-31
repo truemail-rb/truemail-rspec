@@ -16,6 +16,14 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/truemail-rb/truemail-rspec'
   spec.license       = 'MIT'
 
+  spec.metadata = {
+    'homepage_uri' => 'https://truemail-rb.org',
+    'changelog_uri' => 'https://github.com/truemail-rb/truemail-rspec/blob/master/CHANGELOG.md',
+    'source_code_uri' => 'https://github.com/truemail-rb/truemail-rspec',
+    'documentation_uri' => 'https://truemail-rb.org/truemail-rspec/',
+    'bug_tracker_uri' => 'https://github.com/truemail-rb/truemail-rspec/issues'
+  }
+
   spec.required_ruby_version = '>= 2.5.0'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -33,6 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'reek', '~> 6.0', '>= 6.0.1'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 0.89.1'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.7', '>= 1.7.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 1.43', '>= 1.43.1'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_runtime_dependency 'rspec', '~> 3.9'

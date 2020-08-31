@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    truemail-rspec (0.1.3)
+    truemail-rspec (0.2.0)
       rspec (~> 3.9)
       truemail (~> 1.4, >= 1.4.1)
 
@@ -72,6 +72,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.3.0)
       parser (>= 2.7.1.4)
+    rubocop-performance (1.7.1)
+      rubocop (>= 0.82.0)
     rubocop-rspec (1.43.1)
       rubocop (~> 0.87)
     ruby-progressbar (1.10.1)
@@ -86,7 +88,7 @@ GEM
     simpleidn (0.1.1)
       unf (~> 0.1.4)
     thor (1.0.1)
-    truemail (1.6.1)
+    truemail (1.8.0)
       simpleidn (~> 0.1.1)
     unf (0.1.4)
       unf_ext
@@ -107,6 +109,7 @@ DEPENDENCIES
   reek (~> 6.0, >= 6.0.1)
   rspec (~> 3.9)
   rubocop (~> 0.89.1)
+  rubocop-performance (~> 1.7, >= 1.7.1)
   rubocop-rspec (~> 1.43, >= 1.43.1)
   simplecov (~> 0.17.1)
   truemail-rspec!

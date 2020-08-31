@@ -1,5 +1,6 @@
 require:
   - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   DisplayCopNames:    true
@@ -38,112 +39,6 @@ Style/EmptyCaseCondition:
 
 Style/RescueStandardError:
   Enabled: false
-
-Layout/LineLength:
-  Max: 140
-
-Layout/ClassStructure:
-  Enabled: true
-  Categories:
-    module_inclusion:
-      - include
-      - prepend
-      - extend
-    associations:
-      - has_one
-      - has_many
-      - belongs_to
-      - has_and_belongs_to_many
-  ExpectedOrder:
-      - module_inclusion
-      - constants
-      - associations
-      - public_class_methods
-      - initializer
-      - public_methods
-      - protected_methods
-      - private_methods
-
-Layout/EmptyLineAfterGuardClause:
-  Enabled: false
-
-Lint/NonDeterministicRequireOrder:
-  Enabled: false
-
-RSpec/ExampleLength:
-  Enabled: false
-
-RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/MessageChain:
-  Enabled: false
-
-RSpec/ContextWording:
-  Enabled: false
-
-RSpec/AnyInstance:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: false
-
-RSpec/MultipleDescribes:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Enabled: false
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/BinaryOperatorWithIdenticalOperands:
-  Enabled: true
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/DuplicateElsifCondition:
-  Enabled: true
-
-Lint/DuplicateRescueException:
-  Enabled: true
-
-Lint/EmptyConditionalBody:
-  Enabled: true
-
-Lint/FloatComparison:
-  Enabled: true
-
-Lint/MissingSuper:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/OutOfRangeRegexpRef:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/SelfAssignment:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Lint/TopLevelReturnWithArgument:
-  Enabled: true
-
-Lint/UnreachableLoop:
-  Enabled: true
 
 Style/AccessorGrouping:
   Enabled: true
@@ -207,3 +102,127 @@ Style/SlicingWithRange:
 
 Style/StringConcatenation:
   Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 140
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - public_class_methods
+      - initializer
+      - public_methods
+      - protected_methods
+      - private_methods
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
+Lint/FloatComparison:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/SelfAssignment:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+
+Lint/UnreachableLoop:
+  Enabled: true
+
+Performance/AncestorsInclude:
+  Enabled: true
+
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+
+Performance/RedundantSortBlock:
+  Enabled: true
+
+Performance/RedundantStringChars:
+  Enabled: true
+
+Performance/ReverseFirst:
+  Enabled: true
+
+Performance/SortReverse:
+  Enabled: true
+
+Performance/Squeeze:
+  Enabled: true
+
+Performance/StringInclude:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleDescribes:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
