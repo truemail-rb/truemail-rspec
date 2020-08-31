@@ -1,4 +1,4 @@
-# <img src='https://repository-images.githubusercontent.com/222414074/393c9600-09f9-11ea-8d21-345619b97b11' height='250' alt='Truemail RSpec helpers' />
+![Truemail RSpec helpers](https://repository-images.githubusercontent.com/222414074/393c9600-09f9-11ea-8d21-345619b97b11)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rspec/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rspec/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master) [![Gem Version](https://badge.fury.io/rb/truemail-rspec.svg)](https://badge.fury.io/rb/truemail-rspec) [![Downloads](https://img.shields.io/gem/dt/truemail-rspec.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/truemail-rspec) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
@@ -13,9 +13,11 @@
   - [Create configuration instance](#create-configuration-instance)
     - [Configuration instance with default random params](#configuration-instance-with-default-random-params)
     - [Configuration instance with predefined params](#configuration-instance-with-predefined-params)
+  - [Create auditor instance](#create-auditor-instance)
+    - [create_auditor](#create-auditor)
   - [Create validator instance](#create-validator-instance)
     - [create_servers_list](#create_servers_list)
-    - [create_validator DSL](#create_validator-dsl)
+    - [create_validator](#create_validator)
 - [Truemail family](#truemail-family)
 - [Contributing](#contributing)
 - [License](#license)
@@ -85,6 +87,23 @@ create_configuration(verifier_email: 'email@domain.com', verifier_domain: 'other
 # => returns Truemail::Configuration instance with custom settings
 ```
 
+### Create auditor instance
+
+Allows to create auditor instance with default random or with predefined params.
+
+#### create_auditor
+
+```ruby
+create_auditor(
+  success: true, # optional, type:Bool, by default true
+  current_host_ip: current_host_ip, # optional, type:String, by default random IPv4 address
+  warnings: warnings, # optional, type:Hash, by default creates auditor result warnings
+  configuration: create_configuration # optional, type:Truemail::Configuration, by default creates random configuration
+)
+
+# => returns Truemail::Auditor instance follow passed params
+```
+
 ### Create validator instance
 
 Allows to create validator instance with default random or with predefined params.
@@ -95,7 +114,7 @@ Allows to create validator instance with default random or with predefined param
 create_servers_list # => returns array with random ip addresses
 ```
 
-#### create_validator DSL
+#### create_validator
 
 ```ruby
 create_validator(

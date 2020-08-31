@@ -1,9 +1,0 @@
-- [Introduction](introduction)
-- [Quick Start](quick-start)
-- [Usage](usage)
-- [Contact & Support](contact-support)
-- [Truemail Family](truemail-family)
-- [Changelog](changelog)
-- **Links**
-- [![GitHub](https://icongram.jgog.in/simple/github.svg?color=808080&size=16)GitHub](https://github.com/truemail-rb/truemail-rspec)
-- [![Ruby Gems](https://icongr.am/devicon/ruby-plain.svg?size=16&color=currentColor&size=16)Ruby Gems](https://rubygems.org/gems/truemail-rspec)
