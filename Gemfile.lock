@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    truemail-rspec (0.2.0)
+    truemail-rspec (0.2.1)
       rspec (~> 3.9)
       truemail (~> 1.4, >= 1.4.1)
 
@@ -88,7 +88,7 @@ GEM
     simpleidn (0.1.1)
       unf (~> 0.1.4)
     thor (1.0.1)
-    truemail (1.8.0)
+    truemail (1.9.0)
       simpleidn (~> 0.1.1)
     unf (0.1.4)
       unf_ext
