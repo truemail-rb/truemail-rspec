@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     'homepage_uri' => 'https://truemail-rb.org',
     'changelog_uri' => 'https://github.com/truemail-rb/truemail-rspec/blob/master/CHANGELOG.md',
     'source_code_uri' => 'https://github.com/truemail-rb/truemail-rspec',
-    'documentation_uri' => 'https://truemail-rb.org/truemail-rspec/',
+    'documentation_uri' => 'https://truemail-rb.org/truemail-rspec',
     'bug_tracker_uri' => 'https://github.com/truemail-rb/truemail-rspec/issues'
   }
 

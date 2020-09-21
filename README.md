@@ -4,6 +4,8 @@
 
 `truemail-rspec` gem helps you create `Truemail::Configuration` and `Truemail::Validator` instances for your RSpec environment.
 
+> Actual and maintainable documentation :books: for developers is living [here](https://truemail-rb.org/truemail-rspec).
+
 ## Table of Contents
 
 - [Features](#features)
