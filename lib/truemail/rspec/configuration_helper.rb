@@ -12,7 +12,7 @@ module Truemail
       end
 
       def create_configuration(**configuration_settings)
-        configuration_settings[:verifier_email] = FFaker::Internet.email unless configuration_settings[:verifier_email]
+        configuration_settings[:verifier_email] = Faker::Internet.email unless configuration_settings[:verifier_email]
         Truemail::Configuration.new(&configuration_block(**configuration_settings))
       end
     end

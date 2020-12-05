@@ -1,8 +1,15 @@
-![Truemail RSpec helpers](https://repository-images.githubusercontent.com/222414074/393c9600-09f9-11ea-8d21-345619b97b11)
+# ![Truemail RSpec helpers](https://truemail-rb.org/assets/images/truemail_logo.png)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rspec/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rspec/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master) [![Gem Version](https://badge.fury.io/rb/truemail-rspec.svg)](https://badge.fury.io/rb/truemail-rspec) [![Downloads](https://img.shields.io/gem/dt/truemail-rspec.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/truemail-rspec) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rspec/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d23d82c1c1bdbc271b81/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rspec/test_coverage)
+[![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rspec/tree/master)
+[![Gem Version](https://badge.fury.io/rb/truemail-rspec.svg)](https://badge.fury.io/rb/truemail-rspec)
+[![Downloads](https://img.shields.io/gem/dt/truemail-rspec.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/truemail-rspec)
+[![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-rspec)](LICENSE.txt)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-`truemail-rspec` gem helps you create `Truemail::Configuration` and `Truemail::Validator` instances for your RSpec environment.
+`truemail-rspec` gem helps you to create `Truemail::Configuration`, `Truemail::Auditor` and `Truemail::Validator` instances for your RSpec environment.
 
 > Actual and maintainable documentation :books: for developers is living [here](https://truemail-rb.org/truemail-rspec).
 
@@ -35,6 +42,7 @@ Ruby MRI 2.5.0+
 ## Features
 
 - Ability to create `Truemail::Configuration` instance with random or with predefined params
+- Ability to create `Truemail::Auditor` instance with random or with predefined params
 - Ability to create `Truemail::Validator` instance with random or with predefined params
 
 ## Installation
@@ -124,6 +132,7 @@ create_validator(
   email, # optional, type:String, by default random email
   mail_servers, # optional, type:Array(String), by default array with random ip addresses
   success: true, # optional, type:Bool, by default true
+  rcptto_error: 'custom context of rcptto error' # optional, type:String, by default it's equal to 'user not found'
   configuration: create_configuration # optional, type:Truemail::Configuration, by default creates random configuration
 )
 
@@ -134,15 +143,16 @@ create_validator(
 
 ## Truemail family
 
-All Truemail extensions: https://github.com/truemail-rb
+All Truemail solutions: https://truemail-rb.org
 
 | Name | Type | Description |
 | --- | --- | --- |
-| [truemail](https://github.com/rubygarage/truemail) | ruby gem | Configurable plain Ruby email validator, main core |
-| [truemail server](https://github.com/truemail-rb/truemail-rack) | ruby app | Lightweight rack based web API wrapper for Truemail |
+| [truemail](https://github.com/truemail-rb/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
+| [truemail server](https://github.com/truemail-rb/truemail-rack) | ruby app | Lightweight rack based web API wrapper for Truemail gem |
 | [truemail-rack-docker](https://github.com/truemail-rb/truemail-rack-docker-image) | docker image | Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server |
-| [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Truemail web API client library for Ruby |
-| [truemail-crystal-client](https://github.com/truemail-rb/truemail-crystal-client) | crystal shard | Truemail web API client library for Crystal |
+| [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Web API Ruby client for Truemail Server |
+| [truemail-crystal-client](https://github.com/truemail-rb/truemail-crystal-client) | crystal shard | Web API Crystal client for Truemail Server |
+| [truemail-java-client](https://github.com/truemail-rb/truemail-java-client) | java lib | Web API Java client for Truemail Server |
 
 ## Contributing
 

@@ -4,17 +4,18 @@ module Truemail
   module RSpec
     module ValidatorHelper
       def create_servers_list
-        Array.new(rand(1..4)) { FFaker::Internet.ip_v4_address }
+        Array.new(rand(1..4)) { Faker::Internet.ip_v4_address }
       end
 
-      def create_validator(
+      def create_validator( # rubocop:disable Metrics/ParameterLists
         validation_type = nil,
-        email = FFaker::Internet.email,
+        email = Faker::Internet.email,
         mail_servers = create_servers_list,
+        rcptto_error: 'user not found',
         success: true,
         configuration: create_configuration
       )
-        set_expected_result(validation_type, email, mail_servers, success, configuration)
+        set_expected_result(validation_type, email, mail_servers, success, configuration, rcptto_error)
         stub_validation_layers
         validator_instance = ValidatorFactory.call(validation_type, success, email, configuration)
         unstub_validation_layers
@@ -23,14 +24,15 @@ module Truemail
 
       private
 
-      attr_reader :validation_type, :email, :success, :configuration, :mail_servers
+      attr_reader :validation_type, :email, :success, :configuration, :mail_servers, :rcptto_error
 
-      def set_expected_result(validation_type, email, mail_servers, success, configuration)
+      def set_expected_result(validation_type, email, mail_servers, success, configuration, rcptto_error) # rubocop:disable Metrics/ParameterLists
         @validation_type = validation_type
         @email = email
         @mail_servers = mail_servers
         @success = success
         @configuration = configuration
+        @rcptto_error = rcptto_error
       end
 
       def stub_validation_layers
@@ -74,7 +76,7 @@ module Truemail
           response.helo = true
           response.mailfrom = true
           response.rcptto = false
-          response.errors[:rcptto] = 'user not found'
+          response.errors[:rcptto] = rcptto_error
         end
 
         request
