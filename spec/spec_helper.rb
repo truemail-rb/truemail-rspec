@@ -2,7 +2,7 @@
 
 require 'bundler/setup'
 require 'simplecov'
-require 'ffaker'
+require 'faker'
 require 'pry'
 require 'truemail'
 require 'truemail/rspec'

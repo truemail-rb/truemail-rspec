@@ -29,7 +29,7 @@ RSpec.describe Truemail::RSpec::ConfigurationHelper, type: :helper do
     end
 
     context 'with custom params' do
-      let(:verifier_email) { FFaker::Internet.email }
+      let(:verifier_email) { Faker::Internet.email }
       let(:params) { { verifier_email: verifier_email } }
 
       it 'returns configuration instance with custom verifier email' do

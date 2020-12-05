@@ -11,10 +11,13 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
   end
 
   describe '#create_validator' do
-    subject(:validator_instance) { create_validator(validation_type, email, mx_servers, success: success_status) }
+    subject(:validator_instance) do
+      create_validator(validation_type, email, mx_servers, **kwargs)
+    end
 
-    let(:email) { FFaker::Internet.email }
+    let(:email) { Faker::Internet.email }
     let(:mx_servers) { create_servers_list }
+    let(:kwargs) { { success: success_status } }
 
     describe 'successful validator instance' do
       let(:validator_instance_result) { validator_instance.result }
@@ -148,15 +151,31 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
       context 'with smtp validation type' do
         let(:validation_type) { :smtp }
 
-        include_examples 'fail validator instance'
+        shared_examples 'has necessary validator instance result attributes' do
+          it 'has necessary validator instance result attributes' do
+            expect(validator_instance_result.domain).not_to be_nil
+            expect(validator_instance_result.errors).to include(validation_type)
+            expect(validator_instance_result.mail_servers).to eq(mx_servers)
+            expect(validator_instance_result.smtp_debug).not_to be_empty
+            expect(validator_instance_result.smtp_debug.first.response.errors).to include(rcptto: rcptto_context)
+            expect(validator_instance.validation_type).to eq(validation_type)
+          end
+        end
 
-        it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).not_to be_nil
-          expect(validator_instance_result.errors).to include(validation_type)
-          expect(validator_instance_result.mail_servers).to eq(mx_servers)
-          expect(validator_instance_result.smtp_debug).not_to be_empty
-          expect(validator_instance_result.smtp_debug.first.response.errors).to include(rcptto: 'user not found')
-          expect(validator_instance.validation_type).to eq(validation_type)
+        context 'with default rcptto error' do
+          let(:rcptto_context) { 'user not found' }
+
+          include_examples 'fail validator instance'
+          include_examples 'has necessary validator instance result attributes'
+        end
+
+        context 'with custom rcptto error' do
+          let(:custom_rcptto_error) { 'custom rcptto error' }
+          let(:rcptto_context) { custom_rcptto_error }
+          let(:kwargs) { { success: success_status, rcptto_error: custom_rcptto_error } }
+
+          include_examples 'fail validator instance'
+          include_examples 'has necessary validator instance result attributes'
         end
       end
     end
