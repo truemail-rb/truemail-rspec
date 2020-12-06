@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'faker'
 require 'truemail/rspec/version'
 require 'truemail/rspec/configuration_helper'
 require 'truemail/rspec/auditor_helper'
