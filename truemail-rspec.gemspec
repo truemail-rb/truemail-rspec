@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-performance', '~> 1.9', '>= 1.9.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.0', '>= 2.0.1'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_runtime_dependency 'faker', '~> 2.15', '>= 2.15.1'
   spec.add_runtime_dependency 'rspec', '~> 3.10'
   spec.add_runtime_dependency 'truemail', '~> 2.2'
 end
