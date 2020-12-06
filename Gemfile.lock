@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    truemail-rspec (0.3.0)
+    truemail-rspec (0.3.1)
+      faker (~> 2.15, >= 2.15.1)
       rspec (~> 3.10)
       truemail (~> 2.2)
 
