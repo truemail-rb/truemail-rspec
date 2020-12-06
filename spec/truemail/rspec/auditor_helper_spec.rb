@@ -19,7 +19,7 @@ RSpec.describe Truemail::RSpec::AuditorHelper, type: :helper do
         subject(:auditor_instance) { create_auditor(success: success_status, current_host_ip: current_host_ip) }
 
         let(:success_status) { true }
-        let(:current_host_ip) { Faker::Internet.ip_v4_address }
+        let(:current_host_ip) { ::Faker::Internet.ip_v4_address }
 
         it 'creates successful auditor instance' do
           expect(auditor_instance_result.current_host_ip).to eq(current_host_ip)
