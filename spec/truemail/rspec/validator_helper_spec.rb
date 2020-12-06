@@ -15,7 +15,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
       create_validator(validation_type, email, mx_servers, **kwargs)
     end
 
-    let(:email) { Faker::Internet.email }
+    let(:email) { ::Faker::Internet.email }
     let(:mx_servers) { create_servers_list }
     let(:kwargs) { { success: success_status } }
 
