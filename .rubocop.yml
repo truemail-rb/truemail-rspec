@@ -136,6 +136,9 @@ Style/HashExcept:
 Style/IfWithBooleanLiteralBranches:
   Enabled: true
 
+Style/StringChars:
+  Enabled: true
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
@@ -300,6 +303,15 @@ Performance/MethodObjectAsBlock:
   Enabled: true
 
 Performance/Sum:
+  Enabled: true
+
+Performance/MapCompact:
+  Enabled: true
+
+Performance/RedundantEqualityComparisonBlock:
+  Enabled: true
+
+Performance/RedundantSplitRegexpArgument:
   Enabled: true
 
 RSpec/ExampleLength:

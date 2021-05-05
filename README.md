@@ -122,6 +122,7 @@ Allows to create validator instance with default random or with predefined param
 
 ```ruby
 create_servers_list # => returns array with random ip addresses
+create_servers_list(42) # => returns array with 42 random ip addresses
 ```
 
 #### create_validator
