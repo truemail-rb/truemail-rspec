@@ -11,6 +11,7 @@ detectors:
   ControlParameter:
     exclude:
       - Truemail::RSpec::AuditorHelper#create_auditor
+      - Truemail::RSpec::ValidatorHelper#create_servers_list
 
   NestedIterators:
     exclude:

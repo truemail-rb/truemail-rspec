@@ -3,8 +3,8 @@
 module Truemail
   module RSpec
     module ValidatorHelper
-      def create_servers_list
-        Array.new(rand(1..4)) { ::Faker::Internet.ip_v4_address }
+      def create_servers_list(size = nil)
+        ::Array.new(size || rand(1..4)) { ::Faker::Internet.ip_v4_address }
       end
 
       def create_validator( # rubocop:disable Metrics/ParameterLists
