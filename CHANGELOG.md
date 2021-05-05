@@ -2,6 +2,21 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2021-05-05
+
+### Added
+
+- Ability to set size for servers list
+
+```ruby
+create_servers_list(42) # => returns array with 42 random ip addresses
+```
+
+### Updated
+
+- gem runtime dependencies
+- gem development dependencies
+
 ## [0.4.0] - 2021-02-24
 
 ### Updated

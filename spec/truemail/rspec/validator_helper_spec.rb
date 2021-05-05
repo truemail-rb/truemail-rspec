@@ -2,11 +2,24 @@
 
 RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
   describe '#create_servers_list' do
-    subject(:servers_list) { create_servers_list }
+    context 'without size' do
+      subject(:servers_list) { create_servers_list }
 
-    it 'returns an array with ips' do
-      expect(servers_list).to be_an_instance_of(Array)
-      expect(servers_list).not_to be_empty
+      it 'returns random size array with ips' do
+        expect(servers_list).to be_an_instance_of(::Array)
+        expect(servers_list).not_to be_empty
+      end
+    end
+
+    context 'with size' do
+      subject(:servers_list) { create_servers_list(size) }
+
+      let(:size) { 2 }
+
+      it 'returns predefined size array with ips' do
+        expect(servers_list).to be_an_instance_of(::Array)
+        expect(servers_list.size).to eq(size)
+      end
     end
   end
 
