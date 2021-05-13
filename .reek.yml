@@ -25,8 +25,13 @@ detectors:
   DuplicateMethodCall:
     exclude:
       - Truemail::RSpec::ValidatorHelper#mx_layer
+      - Truemail::RSpec::ValidatorHelper#mx_blacklist_layer
       - Truemail::RSpec::ValidatorHelper#smtp_layer
       - Truemail::RSpec::ValidatorHelper#unstub_validation_layers
+
+  TooManyInstanceVariables:
+    exclude:
+      - Truemail::RSpec::ValidatorHelper::ValidatorFactory
 
   LongParameterList:
     enabled: false
