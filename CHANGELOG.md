@@ -2,6 +2,88 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2021-05-13
+
+### Added
+
+```ruby
+# Truemail::Validator instance, successful case
+create_validator(:mx_blacklist)
+=> #<Truemail::Validator:0x00007fea91a1d528
+ @result=
+  #<struct Truemail::Validator::Result
+   success=true,
+   email="danyell@brakus-dooley.co",
+   domain="brakus-dooley.co",
+   mail_servers=["175.244.212.125", "69.106.253.221", "7.125.70.85", "152.249.195.7"],
+   errors={},
+   smtp_debug=nil,
+   configuration=
+    #<Truemail::Configuration:0x00007fea98977248
+     @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=[],
+     @connection_attempts=2,
+     @connection_timeout=2,
+     @default_validation_type=:smtp,
+     @dns=[],
+     @email_pattern=/(?=\A.{6,255}\z)(\A([\p{L}0-9]+[\w|\-.+]*)@((?i-mx:[\p{L}0-9]+([\-.]{1}[\p{L}0-9]+)*\.\p{L}{2,63}))\z)/,
+     @not_rfc_mx_lookup_flow=false,
+     @response_timeout=2,
+     @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
+     @smtp_fail_fast=false,
+     @smtp_safe_check=false,
+     @validation_type_by_domain={},
+     @verifier_domain="lubowitz.com",
+     @verifier_email="shante.keeling@lubowitz.com",
+     @whitelist_validation=false,
+     @whitelisted_domains=[]>>,
+ @validation_type=:mx_blacklist>
+
+# Truemail::Validator instance, failure case
+create_validator(:mx_blacklist, success: false)
+=> #<Truemail::Validator:0x00007fea988cfd18
+ @result=
+  #<struct Truemail::Validator::Result
+   success=false,
+   email="mike.treutel@heathcote.biz",
+   domain="heathcote.biz",
+   mail_servers=["212.76.177.170", "253.244.87.72", "144.225.110.224"],
+   errors={:mx_blacklist=>"blacklisted mx server ip address"},
+   smtp_debug=nil,
+   configuration=
+    #<Truemail::Configuration:0x00007fea988ee150
+     @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=["212.76.177.170", "253.244.87.72", "144.225.110.224"],
+     @connection_attempts=2,
+     @connection_timeout=2,
+     @default_validation_type=:smtp,
+     @dns=[],
+     @email_pattern=/(?=\A.{6,255}\z)(\A([\p{L}0-9]+[\w|\-.+]*)@((?i-mx:[\p{L}0-9]+([\-.]{1}[\p{L}0-9]+)*\.\p{L}{2,63}))\z)/,
+     @not_rfc_mx_lookup_flow=false,
+     @response_timeout=2,
+     @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
+     @smtp_fail_fast=false,
+     @smtp_safe_check=false,
+     @validation_type_by_domain={},
+     @verifier_domain="grant-flatley.org",
+     @verifier_email="mariano@grant-flatley.org",
+     @whitelist_validation=false,
+     @whitelisted_domains=[]>>,
+ @validation_type=:mx_blacklist>
+```
+
+- Ability to create `Truemail::Validator` instance for `MxBlacklist` validation layer
+- Stub for `MxBlacklist` validation layer
+- CircleCI config for using multiple Ruby versions
+
+### Updated
+
+- Updated gem development dependencies
+
+### Fixed
+
+- Simplecov coverage issues
+
 ## [0.5.0] - 2021-05-05
 
 ### Added
