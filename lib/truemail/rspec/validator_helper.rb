@@ -17,7 +17,7 @@ module Truemail
       )
         set_expected_result(validation_type, email, mail_servers, success, configuration, rcptto_error)
         stub_validation_layers
-        validator_instance = ValidatorFactory.call(validation_type, success, email, configuration)
+        validator_instance = ValidatorFactory.call(validation_type, success, email, mail_servers, configuration)
         unstub_validation_layers
         validator_instance
       end
@@ -39,6 +39,7 @@ module Truemail
         case validation_type
         when :regex then regex_layer
         when :mx then mx_layer
+        when :mx_blacklist then mx_blacklist_layer
         else smtp_layer
         end
       end
@@ -61,6 +62,13 @@ module Truemail
         allow(Truemail::Validate::Regex).to receive(:check).and_return(true)
         allow_any_instance_of(Truemail::Validate::Mx).to receive(:mx_records).and_return(mail_servers)
         allow_any_instance_of(Truemail::Validate::Mx).to receive(:domain_not_include_null_mx).and_return(success)
+      end
+
+      def mx_blacklist_layer # rubocop:disable Metrics/AbcSize
+        allow(Truemail::Validate::Regex).to receive(:check).and_return(true)
+        allow_any_instance_of(Truemail::Validate::Mx).to receive(:mx_records).and_return(mail_servers)
+        allow_any_instance_of(Truemail::Validate::Mx).to receive(:domain_not_include_null_mx).and_return(true)
+        allow_any_instance_of(Truemail::Validate::MxBlacklist).to receive(:not_blacklisted_mail_servers?).and_return(success)
       end
 
       def request_instance
@@ -92,14 +100,15 @@ module Truemail
       end
 
       class ValidatorFactory
-        def self.call(validation_type, success, email, configuration)
-          new(validation_type, success, email, configuration).build
+        def self.call(validation_type, success, email, mail_servers, configuration)
+          new(validation_type, success, email, mail_servers, configuration).build
         end
 
-        def initialize(validation_type, success, email, configuration)
+        def initialize(validation_type, success, email, mail_servers, configuration)
           @validation_type = validation_type
           @success = success
           @email = email
+          @mail_servers = mail_servers
           @configuration = configuration
         end
 
@@ -110,15 +119,19 @@ module Truemail
 
         private
 
-        attr_reader :success, :email, :configuration
+        attr_reader :success, :email, :mail_servers, :configuration
         attr_accessor :validation_type
 
         def process_validator_params
-          return unless validation_type.eql?(:whitelist)
-          self.validation_type = nil
-          method = success ? :whitelisted_domains : :blacklisted_domains
-          domain = email[Truemail::RegexConstant::REGEX_EMAIL_PATTERN, 3]
-          configuration.tap { |config| config.public_send(method) << domain }
+          case validation_type
+          when :whitelist
+            self.validation_type = nil
+            method = success ? :whitelisted_domains : :blacklisted_domains
+            domain = email[Truemail::RegexConstant::REGEX_EMAIL_PATTERN, 3]
+            configuration.tap { |config| config.public_send(method) << domain }
+          when :mx_blacklist
+            configuration.blacklisted_mx_ip_addresses.push(*mail_servers) unless success
+          end
         end
       end
     end

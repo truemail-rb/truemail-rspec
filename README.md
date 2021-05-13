@@ -129,7 +129,7 @@ create_servers_list(42) # => returns array with 42 random ip addresses
 
 ```ruby
 create_validator(
-  validation_type, # optional, type:Symbol, can be :regex, :mx or :smtp, by default creates :smtp validation
+  validation_type, # optional, type:Symbol, can be :whitelist, :regex, :mx, :mx_blacklist or :smtp, by default creates :smtp validation
   email, # optional, type:String, by default random email
   mail_servers, # optional, type:Array(String), by default array with random ip addresses
   success: true, # optional, type:Bool, by default true

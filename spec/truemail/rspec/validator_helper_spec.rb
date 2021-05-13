@@ -82,6 +82,17 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         end
       end
 
+      context 'with mx blacklist validation type' do
+        let(:validation_type) { :mx_blacklist }
+
+        include_examples 'successful validator instance'
+
+        it 'has necessary validator instance result attributes' do
+          expect(validator_instance_result.domain).not_to be_nil
+          expect(validator_instance_result.mail_servers).to eq(mx_servers)
+        end
+      end
+
       context 'with smtp validation type' do
         let(:validation_type) { :smtp }
 
@@ -157,6 +168,23 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
           expect(validator_instance_result.domain).not_to be_nil
           expect(validator_instance_result.errors).to include(validation_type)
           expect(validator_instance_result.mail_servers).to be_empty
+          expect(validator_instance.validation_type).to eq(validation_type)
+        end
+      end
+
+      context 'with mx blacklist validation type' do
+        let(:validation_type) { :mx_blacklist }
+
+        include_examples 'fail validator instance'
+
+        it 'has necessary validator instance result attributes' do
+          mail_servers = validator_instance_result.mail_servers
+          blacklisted_mx_ip_addresses = validator_instance_result.configuration.blacklisted_mx_ip_addresses
+
+          expect(validator_instance_result.domain).not_to be_nil
+          expect(validator_instance_result.errors).to include(validation_type)
+          expect(mail_servers).not_to be_empty
+          expect(blacklisted_mx_ip_addresses).to eq(mail_servers)
           expect(validator_instance.validation_type).to eq(validation_type)
         end
       end
