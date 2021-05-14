@@ -23,7 +23,7 @@
     - [Configuration instance with default random params](#configuration-instance-with-default-random-params)
     - [Configuration instance with predefined params](#configuration-instance-with-predefined-params)
   - [Create auditor instance](#create-auditor-instance)
-    - [create_auditor](#create-auditor)
+    - [create_auditor](#create_auditor)
   - [Create validator instance](#create-validator-instance)
     - [create_servers_list](#create_servers_list)
     - [create_validator](#create_validator)
