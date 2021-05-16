@@ -90,7 +90,7 @@ create_configuration
 
 #### Configuration instance with predefined params
 
-All `Truemail::Configuration` [available params](https://github.com/truemail-rb/truemail-rspec#setting-global-configuration)
+All `Truemail::Configuration` [available params](https://github.com/truemail-rb/truemail#setting-global-configuration)
 
 ```ruby
 create_configuration(verifier_email: 'email@domain.com', verifier_domain: 'other-domain.com')
