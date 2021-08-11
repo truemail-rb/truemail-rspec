@@ -4,12 +4,12 @@ module Truemail
   module RSpec
     module ValidatorHelper
       def create_servers_list(size = nil)
-        ::Array.new(size || rand(1..4)) { ::Faker::Internet.ip_v4_address }
+        ::Array.new(size || rand(1..4)) { ::FFaker::Internet.ip_v4_address }
       end
 
       def create_validator( # rubocop:disable Metrics/ParameterLists
         validation_type = nil,
-        email = ::Faker::Internet.email,
+        email = ::FFaker::Internet.email,
         mail_servers = create_servers_list,
         rcptto_error: 'user not found',
         success: true,

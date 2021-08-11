@@ -10,7 +10,7 @@ if ::RUBY_VERSION[/\A2\.5.+\z/]
   SimpleCov.start { add_filter(%r{\A/spec/}) }
 end
 
-require 'faker'
+require 'ffaker'
 require 'pry'
 require 'truemail'
 require 'truemail/rspec'

@@ -28,6 +28,9 @@ Naming/VariableNumber:
 Naming/RescuedExceptionsVariableName:
   Enabled: false
 
+Naming/InclusiveLanguage:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -139,6 +142,15 @@ Style/IfWithBooleanLiteralBranches:
 Style/StringChars:
   Enabled: true
 
+Style/InPatternThen:
+  Enabled: true
+
+Style/MultilineInPatternThen:
+  Enabled: true
+
+Style/QuotedSymbols:
+  Enabled: true
+
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
@@ -168,6 +180,9 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
 Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Layout/LineEndStringConcatenationIndentation:
   Enabled: true
 
 Lint/NonDeterministicRequireOrder:
@@ -263,6 +278,9 @@ Lint/SymbolConversion:
 Lint/TripleQuotes:
   Enabled: true
 
+Lint/EmptyInPattern:
+  Enabled: true
+
 Gemspec/DateAssignment:
   Enabled: true
 
@@ -340,3 +358,9 @@ RSpec/MultipleDescribes:
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
+
+RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+
+RSpec/Rails/AvoidSetupHook:
+  Enabled: true

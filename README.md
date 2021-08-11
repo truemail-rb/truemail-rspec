@@ -23,7 +23,7 @@
     - [Configuration instance with default random params](#configuration-instance-with-default-random-params)
     - [Configuration instance with predefined params](#configuration-instance-with-predefined-params)
   - [Create auditor instance](#create-auditor-instance)
-    - [create_auditor](#create-auditor)
+    - [create_auditor](#create_auditor)
   - [Create validator instance](#create-validator-instance)
     - [create_servers_list](#create_servers_list)
     - [create_validator](#create_validator)
@@ -90,7 +90,7 @@ create_configuration
 
 #### Configuration instance with predefined params
 
-All `Truemail::Configuration` [available params](https://github.com/truemail-rb/truemail-rspec#setting-global-configuration)
+All `Truemail::Configuration` [available params](https://github.com/truemail-rb/truemail#setting-global-configuration)
 
 ```ruby
 create_configuration(verifier_email: 'email@domain.com', verifier_domain: 'other-domain.com')
