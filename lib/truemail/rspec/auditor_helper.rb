@@ -5,7 +5,7 @@ module Truemail
     module AuditorHelper
       def create_auditor(
         success: true,
-        current_host_ip: ::Faker::Internet.ip_v4_address,
+        current_host_ip: ::FFaker::Internet.ip_v4_address,
         warnings: { ip: Truemail::Audit::Ip::IPIFY_ERROR },
         configuration: create_configuration
       )
