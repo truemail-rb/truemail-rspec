@@ -3,7 +3,7 @@
 require 'bundler/setup'
 require 'simplecov'
 
-if ::RUBY_VERSION[/\A2\.5.+\z/]
+if ::RUBY_VERSION[/\A3\.1.+\z/]
   require 'simplecov'
 
   SimpleCov.minimum_coverage(100)

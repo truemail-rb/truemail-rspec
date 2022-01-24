@@ -54,7 +54,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         include_examples 'successful validator instance'
 
         it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).to be_nil
+          expect(validator_instance_result.domain).not_to be_nil
           expect(validator_instance_result.mail_servers).to be_empty
           expect(validator_instance_result_configuration.whitelisted_domains).not_to be_empty
         end
@@ -66,7 +66,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         include_examples 'successful validator instance'
 
         it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).to be_nil
+          expect(validator_instance_result.domain).not_to be_nil
           expect(validator_instance_result.mail_servers).to be_empty
         end
       end
@@ -137,7 +137,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         include_examples 'fail validator instance'
 
         it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).to be_nil
+          expect(validator_instance_result.domain).not_to be_nil
           expect(validator_instance_result.errors).to include(:domain_list_match)
           expect(validator_instance_result.mail_servers).to be_empty
           expect(validator_instance_result.smtp_debug).to be_nil
@@ -152,7 +152,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         include_examples 'fail validator instance'
 
         it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).to be_nil
+          expect(validator_instance_result.domain).not_to be_nil
           expect(validator_instance_result.errors).to include(validation_type)
           expect(validator_instance_result.mail_servers).to be_empty
           expect(validator_instance.validation_type).to eq(validation_type)
