@@ -33,6 +33,10 @@ detectors:
     exclude:
       - Truemail::RSpec::ValidatorHelper::ValidatorFactory
 
+  UtilityFunction:
+    exclude:
+      - Truemail::RSpec::ValidatorHelper#create_servers_list
+
   LongParameterList:
     enabled: false
 

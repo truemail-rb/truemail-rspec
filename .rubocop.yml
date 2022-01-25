@@ -31,6 +31,9 @@ Naming/RescuedExceptionsVariableName:
 Naming/InclusiveLanguage:
   Enabled: false
 
+Naming/BlockForwarding:
+  Enabled: true
+
 Style/Documentation:
   Enabled: false
 
@@ -149,6 +152,30 @@ Style/MultilineInPatternThen:
   Enabled: true
 
 Style/QuotedSymbols:
+  Enabled: true
+
+Style/FileRead:
+  Enabled: true
+
+Style/FileWrite:
+  Enabled: true
+
+Style/MapToHash:
+  Enabled: true
+
+Style/NumberedParameters:
+  Enabled: true
+
+Style/NumberedParametersLimit:
+  Enabled: true
+
+Style/OpenStructUse:
+  Enabled: true
+
+Style/RedundantSelfAssignmentBranch:
+  Enabled: true
+
+Style/SelectByRegexp:
   Enabled: true
 
 Layout/EmptyLinesAroundAttributeAccessor:
@@ -281,7 +308,28 @@ Lint/TripleQuotes:
 Lint/EmptyInPattern:
   Enabled: true
 
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true
+
+Lint/AmbiguousRange:
+  Enabled: true
+
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Enabled: true
+
+Lint/RequireRelativeSelfPath:
+  Enabled: true
+
+Lint/UselessRuby2Keywords:
+  Enabled: true
+
 Gemspec/DateAssignment:
+  Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Security/IoMethods:
   Enabled: true
 
 Performance/AncestorsInclude:
@@ -332,6 +380,12 @@ Performance/RedundantEqualityComparisonBlock:
 Performance/RedundantSplitRegexpArgument:
   Enabled: true
 
+Performance/ConcurrentMonotonicTime:
+  Enabled: true
+
+Performance/StringIdentifierArgument:
+  Enabled: true
+
 RSpec/ExampleLength:
   Enabled: false
 
@@ -363,4 +417,13 @@ RSpec/IdenticalEqualityAssertion:
   Enabled: true
 
 RSpec/Rails/AvoidSetupHook:
+  Enabled: true
+
+RSpec/ExcessiveDocstringSpacing:
+  Enabled: true
+
+RSpec/SubjectDeclaration:
+  Enabled: true
+
+RSpec/FactoryBot/SyntaxMethods:
   Enabled: true
