@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'simplecov'
 
 if ::RUBY_VERSION[/\A3\.1.+\z/]
   require 'simplecov'
