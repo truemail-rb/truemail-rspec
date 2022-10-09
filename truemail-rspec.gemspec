@@ -29,12 +29,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| ::File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'ffaker', '~> 2.20'
-  spec.add_runtime_dependency 'net-smtp', '~> 0.3.1' if ::RUBY_VERSION >= '3.1.0'
+  spec.add_runtime_dependency 'ffaker', '~> 2.21'
+  spec.add_runtime_dependency 'net-smtp', '~> 0.3.2' if ::RUBY_VERSION >= '3.1.0'
   spec.add_runtime_dependency 'rspec', '~> 3.11'
-  spec.add_runtime_dependency 'truemail', '~> 2.7'
+  spec.add_runtime_dependency 'truemail', '~> 2.7', '>= 2.7.4'
 
-  spec.add_development_dependency 'ffaker', '~> 2.20'
+  spec.add_development_dependency 'ffaker', '~> 2.21'
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
   spec.add_development_dependency 'rspec', '~> 3.11'
 end
