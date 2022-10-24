@@ -3,6 +3,8 @@
 module Truemail
   module RSpec
     module ValidatorHelper
+      VALIDATION_LIST_TYPE_REGEX_PATTERN = /(emails|domains)(_list)/.freeze
+
       def create_servers_list(size = nil)
         ::Array.new(size || ::Random.rand(1..4)) { ::FFaker::Internet.ip_v4_address }
       end
@@ -122,13 +124,15 @@ module Truemail
         attr_reader :success, :email, :mail_servers, :configuration
         attr_accessor :validation_type
 
-        def process_validator_params
+        def process_validator_params # rubocop:disable Metrics/AbcSize
           case validation_type
-          when :whitelist
+          when Truemail::RSpec::ValidatorHelper::VALIDATION_LIST_TYPE_REGEX_PATTERN
+            list_type = validation_type[Truemail::RSpec::ValidatorHelper::VALIDATION_LIST_TYPE_REGEX_PATTERN, 1]
             self.validation_type = nil
-            method = success ? :whitelisted_domains : :blacklisted_domains
-            domain = email[Truemail::RegexConstant::REGEX_EMAIL_PATTERN, 3]
-            configuration.tap { |config| config.public_send(method) << domain }
+            method = success ? :"whitelisted_#{list_type}" : :"blacklisted_#{list_type}"
+            configuration.tap do |config|
+              config.public_send(method) << (list_type.eql?('emails') ? email : email[Truemail::RegexConstant::REGEX_EMAIL_PATTERN, 3])
+            end
           when :mx_blacklist
             configuration.blacklisted_mx_ip_addresses.push(*mail_servers) unless success
           end

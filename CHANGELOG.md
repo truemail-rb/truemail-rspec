@@ -2,6 +2,19 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2022-10-25
+
+### Added
+
+- Ability to create `Truemail::Validator` instance for `Whitelist/Blacklist` validation layer
+
+### Updated
+
+- Updated `Truemail::RSpec::ValidatorHelper::ValidatorFactory#process_validator_params`, tests
+- Updated gem runtime dependencies
+- Updated gem development dependencies
+- Updated gem readme, gem version
+
 ## [0.9.2] - 2022-10-09
 
 ### Updated
