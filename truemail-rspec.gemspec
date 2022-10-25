@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'ffaker', '~> 2.21'
   spec.add_runtime_dependency 'net-smtp', '~> 0.3.2' if ::RUBY_VERSION >= '3.1.0'
   spec.add_runtime_dependency 'rspec', '~> 3.11'
-  spec.add_runtime_dependency 'truemail', '~> 2.7', '>= 2.7.4'
+  spec.add_runtime_dependency 'truemail', '~> 3.0'
 
   spec.add_development_dependency 'ffaker', '~> 2.21'
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
