@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
+  describe 'defined constants' do
+    it { expect(described_class).to be_const_defined(:VALIDATION_LIST_TYPE_REGEX_PATTERN) }
+  end
+
   describe '#create_servers_list' do
     context 'without size' do
       subject(:servers_list) { create_servers_list }
@@ -36,6 +40,7 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
       let(:validator_instance_result) { validator_instance.result }
       let(:validator_instance_result_configuration) { validator_instance_result.configuration }
       let(:success_status) { true }
+      let(:expected_vlidation_type) { validation_type }
 
       shared_examples 'successful validator instance' do
         it 'creates successful validator instance' do
@@ -44,19 +49,35 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
           expect(validator_instance_result.errors).to be_empty
           expect(validator_instance_result.smtp_debug).to be_nil
           expect(validator_instance_result_configuration).to be_an_instance_of(Truemail::Configuration)
-          expect(validator_instance.validation_type).to eq(validation_type)
+          expect(validator_instance.validation_type).to eq(expected_vlidation_type)
         end
       end
 
-      context 'with whitelist validation type' do
-        let(:validation_type) { :whitelist }
+      context 'with list match validation type' do
+        let(:expected_vlidation_type) { :whitelist }
 
-        include_examples 'successful validator instance'
+        context 'with emails list validation type' do
+          let(:validation_type) { :emails_list }
 
-        it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).not_to be_nil
-          expect(validator_instance_result.mail_servers).to be_empty
-          expect(validator_instance_result_configuration.whitelisted_domains).not_to be_empty
+          include_examples 'successful validator instance'
+
+          it 'has necessary validator instance result attributes' do
+            expect(validator_instance_result.domain).to be_nil
+            expect(validator_instance_result.mail_servers).to be_empty
+            expect(validator_instance_result_configuration.whitelisted_emails).not_to be_empty
+          end
+        end
+
+        context 'with domains list validation type' do
+          let(:validation_type) { :domains_list }
+
+          include_examples 'successful validator instance'
+
+          it 'has necessary validator instance result attributes' do
+            expect(validator_instance_result.domain).not_to be_nil
+            expect(validator_instance_result.mail_servers).to be_empty
+            expect(validator_instance_result_configuration.whitelisted_domains).not_to be_empty
+          end
         end
       end
 
@@ -131,18 +152,34 @@ RSpec.describe Truemail::RSpec::ValidatorHelper, type: :helper do
         end
       end
 
-      context 'with whitelist validation type' do
-        let(:validation_type) { :whitelist }
+      context 'with list match validation type' do
+        let(:expected_vlidation_type) { :whitelist }
 
-        include_examples 'fail validator instance'
+        shared_examples 'has necessary validator instance result attributes' do
+          it 'has necessary validator instance result attributes' do
+            expect(validator_instance_result.domain).not_to be_nil
+            expect(validator_instance_result.errors).to include(:list_match)
+            expect(validator_instance_result.mail_servers).to be_empty
+            expect(validator_instance_result.smtp_debug).to be_nil
+            expect(target_blacklist).not_to be_empty
+            expect(validator_instance.validation_type).to eq(:blacklist)
+          end
+        end
 
-        it 'has necessary validator instance result attributes' do
-          expect(validator_instance_result.domain).not_to be_nil
-          expect(validator_instance_result.errors).to include(:domain_list_match)
-          expect(validator_instance_result.mail_servers).to be_empty
-          expect(validator_instance_result.smtp_debug).to be_nil
-          expect(validator_instance_result_configuration.blacklisted_domains).not_to be_empty
-          expect(validator_instance.validation_type).to eq(:blacklist)
+        context 'with emails list validation type' do
+          let(:validation_type) { :emails_list }
+          let(:target_blacklist) { validator_instance_result_configuration.blacklisted_emails }
+
+          include_examples 'fail validator instance'
+          include_examples 'has necessary validator instance result attributes'
+        end
+
+        context 'with domains list validation type' do
+          let(:validation_type) { :domains_list }
+          let(:target_blacklist) { validator_instance_result_configuration.blacklisted_domains }
+
+          include_examples 'fail validator instance'
+          include_examples 'has necessary validator instance result attributes'
         end
       end
 
