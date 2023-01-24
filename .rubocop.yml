@@ -26,6 +26,9 @@ Naming/VariableNumber:
 Style/Documentation:
   Enabled: false
 
+Style/RedundantConstantBase:
+  Enabled: false
+
 # Layout ----------------------------------------------------------------------
 
 Layout/LineLength:
