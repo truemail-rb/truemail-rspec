@@ -2,7 +2,7 @@
 
 require 'bundler/setup'
 
-if ::RUBY_VERSION[/\A3\.1.+\z/]
+if ::RUBY_VERSION[/\A3\.2.+\z/]
   require 'pry'
   require 'simplecov'
 
