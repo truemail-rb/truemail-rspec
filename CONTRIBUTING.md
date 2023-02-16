@@ -22,7 +22,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 
 ## Feature requests
 
-Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to *you* to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
+Feature requests are welcome. But take a moment to find out whether your idea fits with the scope and aims of the project. It's up to _you_ to make a strong case to convince the project's developers of the merits of this feature. Please provide as much detail and context as possible.
 
 ## Questions
 
@@ -45,4 +45,4 @@ Guidelines for pull requests:
 5. Create a new branch
 6. Read our [setup development environment guide](.github/DEVELOPMENT_ENVIRONMENT_GUIDE.md)
 7. Make your changes. Please note that your PR should include tests for the new codebase!
-9. Push to your fork and submit a pull request to `develop` branch
+8. Push to your fork and submit a pull request to `develop` branch
