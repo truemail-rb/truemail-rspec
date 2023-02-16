@@ -23,18 +23,15 @@ Gem::Specification.new do |spec|
   }
 
   spec.required_ruby_version = '>= 2.5.0'
-
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| ::File.basename(f) }
-  spec.require_paths = ['lib']
+  spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(bin|lib)/|.ruby-version|truemail-rspec.gemspec|LICENSE}) }
+  spec.require_paths = %w[lib]
 
   spec.add_runtime_dependency 'ffaker', '~> 2.21'
   spec.add_runtime_dependency 'net-smtp', '~> 0.3.3' if ::Gem::Version.new(::RUBY_VERSION) >= ::Gem::Version.new('3.1.0')
-  spec.add_runtime_dependency 'rspec', '~> 3.11'
+  spec.add_runtime_dependency 'rspec', '~> 3.12'
   spec.add_runtime_dependency 'truemail', '~> 3.0'
 
   spec.add_development_dependency 'ffaker', '~> 2.21'
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
-  spec.add_development_dependency 'rspec', '~> 3.11'
+  spec.add_development_dependency 'rspec', '~> 3.12'
 end

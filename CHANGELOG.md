@@ -52,7 +52,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated gem runtime dependencies
 - Updated gem development dependencies
 - Updated default Ruby version for test environment
-- Updated rubocop/codeclimate configs
+- Updated `rubocop`/`codeclimate` configs
 
 ## [0.7.0] - 2021-08-11
 
@@ -145,7 +145,7 @@ create_validator(:mx_blacklist, success: false)
 
 ### Fixed
 
-- Simplecov coverage issues
+- `simplecov` coverage issues
 
 ## [0.5.0] - 2021-05-05
 
@@ -195,7 +195,7 @@ create_servers_list(42) # => returns array with 42 random ip addresses
 
 ### Added
 
-Ability to pass custom context into rcptto error:
+Ability to pass custom context into `rcptto` error:
 
 ```ruby
 create_validator(
