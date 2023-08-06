@@ -1,3 +1,5 @@
+---
+
 require:
   - rubocop-rspec
   - rubocop-performance
@@ -56,6 +58,9 @@ Layout/EmptyLineAfterGuardClause:
 # Gemspec ---------------------------------------------------------------------
 
 Gemspec/RequireMFA:
+  Enabled: false
+
+Gemspec/DevelopmentDependencies:
   Enabled: false
 
 # RSpec -----------------------------------------------------------------------
