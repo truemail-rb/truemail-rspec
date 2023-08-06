@@ -32,14 +32,14 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'truemail', '~> 3.0'
 
   spec.add_development_dependency 'bundler-audit', '~> 0.9.1'
-  spec.add_development_dependency 'fasterer', '~> 0.10.0'
+  spec.add_development_dependency 'fasterer', '~> 0.10.1'
   spec.add_development_dependency 'ffaker', '~> 2.21'
   spec.add_development_dependency 'pry-byebug', '~> 3.10', '>= 3.10.1'
   spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
   spec.add_development_dependency 'reek', '~> 6.1', '>= 6.1.4'
   spec.add_development_dependency 'rspec', '~> 3.12'
-  spec.add_development_dependency 'rubocop', '~> 1.45', '>= 1.45.1'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.16'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.18', '>= 2.18.1'
+  spec.add_development_dependency 'rubocop', '~> 1.55', '>= 1.55.1'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.18'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.23'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
 end

@@ -60,6 +60,9 @@ Layout/EmptyLineAfterGuardClause:
 Gemspec/RequireMFA:
   Enabled: false
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
 # RSpec -----------------------------------------------------------------------
 
 RSpec/ExampleLength:
