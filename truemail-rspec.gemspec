@@ -22,16 +22,19 @@ Gem::Specification.new do |spec|
     'bug_tracker_uri' => 'https://github.com/truemail-rb/truemail-rspec/issues'
   }
 
+  current_ruby_version = ::Gem::Version.new(::RUBY_VERSION)
+  ffaker_version = current_ruby_version >= ::Gem::Version.new('3.0.0') ? '~> 2.23' : '~> 2.21'
+
   spec.required_ruby_version = '>= 2.5.0'
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(bin|lib)/|.ruby-version|truemail-rspec.gemspec|LICENSE}) }
   spec.require_paths = %w[lib]
 
-  spec.add_runtime_dependency 'ffaker', '~> 2.21'
-  spec.add_runtime_dependency 'net-smtp', '~> 0.3.3' if ::Gem::Version.new(::RUBY_VERSION) >= ::Gem::Version.new('3.1.0')
+  spec.add_runtime_dependency 'ffaker', ffaker_version
+  spec.add_runtime_dependency 'net-smtp', '~> 0.4.0' if current_ruby_version >= ::Gem::Version.new('3.1.0')
   spec.add_runtime_dependency 'rspec', '~> 3.12'
   spec.add_runtime_dependency 'truemail', '~> 3.0'
 
-  spec.add_development_dependency 'ffaker', '~> 2.21'
-  spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
+  spec.add_development_dependency 'ffaker', ffaker_version
+  spec.add_development_dependency 'rake', '~> 13.1'
   spec.add_development_dependency 'rspec', '~> 3.12'
 end
