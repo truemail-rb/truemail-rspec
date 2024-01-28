@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Vladislav Trotsenko']
   spec.email         = ['admin@bestweb.com.ua']
 
-  spec.summary       = %(truemail-rspec)
+  spec.summary       = %(Truemail RSpec helpers)
   spec.description   = %(Truemail RSpec helpers)
 
   spec.homepage      = 'https://github.com/truemail-rb/truemail-rspec'
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w[lib]
 
   spec.add_runtime_dependency 'ffaker', ffaker_version
-  spec.add_runtime_dependency 'net-smtp', '~> 0.4.0' if current_ruby_version >= ::Gem::Version.new('3.1.0')
+  spec.add_runtime_dependency 'net-smtp', '~> 0.4.0.1' if current_ruby_version >= ::Gem::Version.new('3.1.0')
   spec.add_runtime_dependency 'rspec', '~> 3.12'
   spec.add_runtime_dependency 'truemail', '~> 3.0'
 
